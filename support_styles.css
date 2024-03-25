@@ -1,0 +1,313 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #1a1a28;
+  color: #f9f9fc;
+  display: block;
+  margin: 80px 0 0 0;
+  padding: 0;
+  text-align: center;
+}
+body ::selection {
+  background-color: #d85555;
+}
+.custom-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  background-color: #4d5471;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-content {
+  display: flex;
+  width: 80%;
+  padding: 0 20px;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: 15px;
+}
+
+.logo img {
+  height: 55px;
+  width: 55px;
+}
+
+.header-content nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 0 0 0 0;
+  padding: 0;
+  list-style: none;
+}
+.header-content nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-right: -170px;
+}
+
+.header-content nav li {
+  margin-right: 20px;
+}
+.header-content nav a.links {
+  transition: color 0.3s ease;
+  font-size: x-large;
+  font-family: "Lilita One", sans-serif;
+  display: block;
+  color: #f9f9fc;
+  text-decoration: none;
+  padding: 8px;
+}
+.header-content nav a:hover {
+  color: #e02323;
+}
+.mobile-menu {
+  display: none;
+}
+.menu-btn {
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  margin-right: 60px;
+  top: 23px;
+  background-color: #4d5471;
+  border: none;
+  color: #f9f9fc;
+  font-family: "Lilita One", sans-serif;
+  right: 0%;
+  text-align: center;
+  text-decoration: none;
+  font-size: x-large;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #4d5471;
+  border-radius: 4px;
+  min-width: 160px;
+  right: 125px;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  opacity: 1;
+  color: #f9f9fc;
+  font-family: "Lilita One", sans-serif;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #1a1a28;
+}
+
+.show {
+  display: block;
+}
+.contact-container {
+  display: flex;
+  justify-content: space-evenly;
+  padding-bottom: 60px;
+}
+@keyframes slideFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+@keyframes slideFromRight {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+.left-cube {
+  width: 80%;
+  height: 80%;
+}
+.left-cube img {
+  animation: slideFromLeft 2s ease forwards;
+}
+.right-cube {
+  width: 80%;
+  height: 80%;
+}
+.right-cube img {
+  animation: slideFromRight 2s ease forwards;
+}
+.items-container {
+  margin-left: -8px;
+}
+.title-container {
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Lilita One", sans-serif;
+  font-size: 40px;
+  margin-bottom: 30px;
+  z-index: 1;
+}
+.widgets-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: row;
+  gap: 70px;
+}
+.fa-instagram,
+.fa-envelope {
+  text-align: center;
+  font-size: 100px;
+  color: #f9f9fc;
+  animation: moveUpAnimation 2s forwards;
+}
+@keyframes moveUpAnimation {
+  0% {
+    transform: translateY(70px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.discord-container h2 {
+  font-family: "Lilita One", sans-serif;
+  font-size: 44px;
+  padding-bottom: 30px;
+}
+.fa-discord {
+  font-size: 100px;
+  color: #f9f9fc;
+  padding-bottom: 50px;
+  animation: moveUpAnimation 2s forwards;
+}
+.linie-mobile {
+  display: none;
+}
+.linie img {
+  width: 90vw;
+  height: 140px;
+}
+.bottom-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 43px;
+  padding-bottom: 3px;
+}
+.bottom-container nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 0 0;
+  padding: 0;
+  list-style: none;
+}
+.bottom-container nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.bottom-container nav li {
+  padding: 15px;
+}
+.bottom-container nav a.bottom-links {
+  transition: color 0.3s ease;
+  font-size: x-large;
+  font-family: "Lilita One", sans-serif;
+  display: block;
+  color: #f9f9fc;
+  text-decoration: none;
+  padding: 8px;
+}
+.bottom-container nav a:hover {
+  color: #e02323;
+}
+@media only screen and (max-width: 1280px) {
+  .right-cube {
+    display: none;
+  }
+  .left-cube {
+    display: none;
+  }
+  .title-container {
+    font-size: 60px;
+  }
+}
+@media only screen and (max-width: 950px) {
+  .header-content nav {
+    display: none;
+  }
+  .mobile-menu {
+    display: flex;
+  }
+  .items-container {
+    margin-left: 0;
+  }
+  .title-container {
+    margin-bottom: 50px;
+    font-size: 20px;
+  }
+  .widgets-container {
+    margin-right: 0px;
+    gap: 30px;
+  }
+  .widgets-container i {
+    font-size: 70px;
+  }
+  .discord-container h2 {
+    font-size: 25px;
+  }
+  .discord-container i {
+    font-size: 70px;
+  }
+  .bottom-container {
+    padding-right: 0;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 60px;
+  }
+  .right-cube {
+    display: none;
+  }
+  .left-cube {
+    display: none;
+  }
+  .linie {
+    display: none;
+  }
+  .linie-mobile {
+    display: flex;
+    justify-content: center;
+  }
+  .linie-mobile img {
+    width: 90vw;
+  }
+  .bottom-container nav a.bottom-links {
+    font-size: large;
+  }
+}
