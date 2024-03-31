@@ -58,11 +58,14 @@ public:
         cout<<c<<' ';
       cout<<endl;
     }
-    int validation(int &sub,int &total,bool choice)
-    { if(choice){if(num(player_cards[player_cards.size() - 1]))
-       total += stoi(player_cards[player_cards.size() - 1]);
-       else if(player_cards[player_cards.size() - 1] != "A") total += 10;
-       else total += 11;}
+    void sum69(int &total)
+    {    string s = player_cards[player_cards.size() - 1];
+         if(num(s)) total += stoi(s);
+         else if(s != "A") total += 10;
+         else total += 11;
+    }
+    int validation(int &sub,int &total)
+    {
       if(num_aces(player_cards) > 0 && total > 21) {
         if(num_aces(player_cards) > sub) {total -= 10;
         sub = num_aces(player_cards);}}
@@ -73,20 +76,18 @@ public:
     };
 int generateRandomNumber() {
 
-    return std::rand() % (13 + 1);
+    return rand() % (13 + 1);
 }
 int main()
-{   ifstream f("cards.txt");
-    std::srand(static_cast<unsigned>(std::time(nullptr)));
-    vector<string> deck(14);
+{   srand(static_cast<unsigned>(time(nullptr)));
+    vector<string> deck = {"1","2","3","4","5","6","7","8","9","10","J","Q","K","A"};
     char validate;
     int sub1 = 0, sub2 = 0;
     int total1 = 0, total2 = 0;
-    cout<<"To start the game press x: ";
+    cout<<"Welcome to BLACKJACK!"<<endl;
+    cout<<"Press X to start, press SPACE to quit: ";
     validate = _getch();
     cout<<endl;
-    for(int i = 0;i < 14;i++)
-        f>>deck[i];
     while(validate == 'x')
     {Player player1;
     Player dealer;
@@ -94,44 +95,47 @@ int main()
     player1.player_name();
     num = generateRandomNumber();
     dealer.draw_cards(deck[num]);
+    dealer.sum69(total2);
     dealer.show_cards2();
     for(int i = 1;i <= 2;i++)
     {   num = generateRandomNumber();
         player1.draw_cards(deck[num]);
+        player1.sum69(total1);
     }
     player1.show_cards1();
-    if(player1.validation(sub1,total1,true) == 0) {cout<<"Congratulations you won!"<<endl;
-    cout<<"If you want to play again press x, to quit press z: ";
+    if(player1.validation(sub1,total1) == 0) {cout<<"Congratulations "<<player1.name<<" you won!"<<endl;
+    cout<<"If you want to play again press X, to quit press SPACE: ";
     validate = _getch();
     cout<<endl;}
     else
-    {cout<<"If you want to draw another card press enter, if you want to stop press S: ";
+    {cout<<"If you want to draw another card press ENTER, if you want to stop press S: ";
     char choice = _getch();
     cout<<endl;
     while(choice == 13)
     { num = generateRandomNumber();
       player1.draw_cards(deck[num]);
       player1.show_cards1();
-    if(player1.validation(sub1,total1,true) == -1)
+      player1.sum69(total1);
+    if(player1.validation(sub1,total1) == -1)
     {
         cout<<"You lost :///"<<endl;
-        cout<<"If you want to play again press x, to quit press z: ";
+        cout<<"If you want to play again press X, to quit press SPACE: ";
         validate = _getch();
         cout<<endl;
         choice = 's';
     }
-    else {if(player1.validation(sub1,total1,false) == 0)
+    else {if(player1.validation(sub1,total1) == 0)
     {
-        cout<<"Congratulations you won!"<<endl;
-        cout<<"If you want to play again press x, to quit press z: ";
+        cout<<"Congratulations "<<player1.name<<" you won!"<<endl;
+        cout<<"If you want to play again press X, to quit press SPACE: ";
         validate = _getch();
         cout<<endl;
         choice = 's';
-    } else {cout<<"If you want to draw another card press enter, if you want to stop press S: ";
+    } else {cout<<"If you want to draw another card press ENTER, if you want to stop press S: ";
      choice = _getch();
      cout<<endl;}}
     }}
-    if(player1.validation(sub1,total1,false) == 1)
+    if(player1.validation(sub1,total1) == 1)
     {
     cout<<"Your total: "<<total1<<endl;
     while(total1 >= total2)
@@ -140,19 +144,20 @@ int main()
         num = generateRandomNumber();
         dealer.draw_cards(deck[num]);
         dealer.show_cards2();
-        dealer.validation(sub2,total2,true);
+        dealer.sum69(total2);
+        dealer.validation(sub2,total2);
         cout<<"Dealer total: "<<total2<<endl;
 
     }
     if(total2 > 21) {
-        cout<<"Congratulations you won!"<<endl;
-        cout<<"If you want to play again press x, to quit press z: ";
+        cout<<"Congratulations "<<player1.name<<" you won!"<<endl;
+        cout<<"If you want to play again press X, to quit press SPACE: ";
         validate = _getch();
         cout<<endl;
     }
     else {
         cout<<"You lost :///"<<endl;
-        cout<<"If you want to play again press x, to quit press z: ";
+        cout<<"If you want to play again press X, to quit press SPACE: ";
         validate = _getch();
         cout<<endl;
     }
