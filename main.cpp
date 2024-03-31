@@ -134,7 +134,7 @@ int main()
     } else {cout<<"If you want to draw another card press ENTER, if you want to stop press S: ";
      choice = _getch();
      cout<<endl;}}
-    }}
+    }
     if(player1.validation(sub1,total1) == 1)
     {
     cout<<"Your total: "<<total1<<endl;
@@ -161,7 +161,7 @@ int main()
         validate = _getch();
         cout<<endl;
     }
-    }}
+    }}}
     file.close();
     cout<<"Thank you for playing!";
     return 0;
