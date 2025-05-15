@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A Journey to start Investing</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <div class="header">
+      <nav>
+        <ul>
+          <li>
+            <a href="#">Home</a>
+          </li>
+          <li>
+            <a href="/database.html">Database</a>
+          </li>
+        </ul>
+        <div class="header-right">
+          <a class="contact" href="/contact.html">Our Story</a>
+        </div>
+      </nav>
+    </div>
+    <div class="background">
+      <div class="left">
+        <div class="cosmic-plasma">
+          <span class="plasma-overlay"></span>
+          <svg class="texture-filter">
+            <filter id="plasma-texture">
+              <feTurbulence
+                result="noise"
+                numOctaves="4"
+                baseFrequency="0.02"
+                type="fractalNoise"
+              ></feTurbulence>
+              <feColorMatrix
+                result="hue"
+                values="0"
+                type="hueRotate"
+              ></feColorMatrix>
+              <feGaussianBlur
+                result="blur"
+                stdDeviation="2"
+                in="hue"
+              ></feGaussianBlur>
+              <feBlend mode="multiply" in2="blur" in="SourceGraphic"></feBlend>
+            </filter>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="section-main">
+      <div class="content">
+        <div class="title">
+          <h1>A journey to <br />start investing</h1>
+          <p>
+            Starting your investment journey in cryptocurrency can be <br />both
+            thrilling and overwhelming. The first step is education<br />—understanding
+            the basics of blockchain, wallets, exchanges,<br />
+            and different types of cryptocurrencies.<br />
+            Once informed, you’ll need to choose a secure and reputable<br />
+            crypto exchange where you can buy your first digital assets.
+            <br />Risk management is crucial: only invest what you can afford to
+            lose, diversify your holdings, and consider long-term vs. short-term
+            <br />strategies. <br /><br />It's also wise to secure your assets
+            with hardware wallets and to stay updated on market<br />
+            trends and regulatory developments. Investing in crypto isn’t just
+            about chasing gains—it’s about participating in a rapidly evolving
+            digital economy.
+          </p>
+        </div>
+      </div>
+      <div id="chart-container">
+        <canvas id="btcVsUsdChart"></canvas>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      </div>
+      <div class="card" id="cryptoCard">
+        <h2>Crypto Prices</h2>
+
+        <div class="crypto">
+          <div class="info">
+            <img
+              src="https://assets.coingecko.com/coins/images/1/large/bitcoin.png"
+              alt="Bitcoin logo"
+            />
+            <span class="name">Bitcoin (BTC)</span>
+          </div>
+          <div class="price-section">
+            <span class="price" id="btc-price">$0</span>
+            <span class="change" id="btc-change">0%</span>
+          </div>
+        </div>
+
+        <div class="crypto">
+          <div class="info">
+            <img
+              src="https://assets.coingecko.com/coins/images/279/large/ethereum.png"
+              alt="Ethereum logo"
+            />
+            <span class="name">Ethereum (ETH)</span>
+          </div>
+          <div class="price-section">
+            <span class="price" id="eth-price">$0</span>
+            <span class="change" id="eth-change">0%</span>
+          </div>
+        </div>
+
+        <div class="crypto">
+          <div class="info">
+            <img
+              src="https://assets.coingecko.com/coins/images/4128/large/solana.png"
+              alt="Solana logo"
+            />
+            <span class="name">Solana (SOL)</span>
+          </div>
+          <div class="price-section">
+            <span class="price" id="sol-price">$0</span>
+            <span class="change" id="sol-change">0%</span>
+          </div>
+        </div>
+
+        <div class="crypto">
+          <div class="info">
+            <img
+              src="https://assets.coingecko.com/coins/images/44/large/xrp-symbol-white-128.png"
+              alt="XRP logo"
+            />
+            <span class="name">XRP (XRP)</span>
+          </div>
+          <div class="price-section">
+            <span class="price" id="xrp-price">$0</span>
+            <span class="change" id="xrp-change">0%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="section1" class="section" data-color="#f7c4c8">
+      <h3><strong>Introduction</strong> to Cryptocurrency</h3>
+      <div>
+        Cryptocurrency is a digital or virtual form of money that uses
+        cryptography for security and operates independently of traditional
+        banking systems. Unlike physical currencies, cryptocurrencies exist
+        purely online and are stored in digital wallets.<br /><br />
+        The most well-known example is <a href="#section2">Bitcoin</a>, but
+        thousands of other cryptocurrencies—such as:
+        <div class="modal1">
+          Ethereum
+          <div class="hover-modal1">
+            <strong>Ethereum</strong>
+            <p>
+              Ethereum is a decentralized, open-source blockchain platform that
+              enables developers to build and deploy smart contracts and
+              decentralized applications (dApps).
+            </p>
+          </div>
+        </div>
+        <div class="modal2">
+          Binance Coin
+          <div class="hover-modal2">
+            <strong>Binance Coin</strong>
+            <p>
+              Binance Coin (BNB) is the native cryptocurrency of the Binance
+              ecosystem, originally launched on Ethereum but now operating on
+              the BNB Chain.
+            </p>
+          </div>
+        </div>
+        <div class="modal3">
+          Solana
+          <div class="hover-modal3">
+            <strong>Solana</strong>
+            <p>
+              Solana is a high-performance blockchain platform designed for
+              fast, scalable decentralized applications (dApps) and crypto
+              transactions.
+            </p>
+          </div>
+        </div>
+        —serve a range of functions from simple payments to powering complex
+        decentralized applications. <br />At the heart of most cryptocurrencies
+        is blockchain technology, a transparent and tamper-resistant digital
+        ledger that records all transactions. This ensures trust without the
+        need for central authorities. <br /><br />As an asset class,
+        cryptocurrencies are known for their rapid growth and volatility.
+        However, they also represent a shift toward a more open, global
+        financial system. For beginners, understanding the basic principles—like
+        how crypto is created, stored, and traded—is the first step in
+        navigating this exciting space. With the right knowledge, anyone can
+        begin to explore the world of digital finance.
+      </div>
+    </div>
+    <div id="section2" class="section" data-color="#e0d5ff">
+      <h3><strong>Bitcoin:</strong> the Beginning</h3>
+      <div>
+        <a href="https://bitcoin.org/en/"><strong>Bitcoin</strong></a> was
+        launched in 2009 by a mysterious figure known as
+        <div class="modal4">
+          Satoshi Nakamoto
+          <div class="hover-modal4">
+            <strong>Satoshi Nakamoto</strong>
+            <p>
+              Satoshi Nakamoto is the mysterious and pseudonymous creator of
+              Bitcoin, who introduced the first decentralized cryptocurrency in
+              2008 through a whitepaper—revolutionizing digital finance and
+              sparking the blockchain movement.
+            </p>
+          </div>
+        </div>
+        , marking the beginning of a financial revolution. It introduced the
+        concept of a
+        <div class="modal5">
+          decentralized
+          <div class="hover-modal5">
+            <strong>Decentralized</strong>
+            <p>
+              Decentralized refers to a system or structure where control,
+              decision-making, and authority are distributed across multiple
+              points or participants, rather than being concentrated in a single
+              central entity—promoting transparency, resilience, and reduced
+              reliance on intermediaries.
+            </p>
+          </div>
+        </div>
+        , peer-to-peer currency, free from the control of any government or
+        central bank.<br />
+        At its core lies
+        <div class="modal6">
+          blockchain technology
+          <div class="hover-modal6">
+            <strong>Blockchain Technology</strong>
+            <p>
+              Blockchain technology is a decentralized digital ledger system
+              that records transactions across a network of computers in a
+              secure, transparent, and immutable way, enabling trustless and
+              tamper-resistant data sharing without a central authority.
+            </p>
+          </div>
+        </div>
+        —a distributed ledger system that ensures transparency, security, and
+        immutability.<br /><br />
+        <strong>Bitcoin</strong> emerged in response to the 2008 financial
+        crisis, offering an alternative to traditional monetary systems plagued
+        by inflation, manipulation, and inefficiency. Over time,
+        <strong>Bitcoin</strong> has grown from a niche experiment to a globally
+        recognized digital asset, often referred to as "digital gold" due to its
+        limited supply and store-of-value properties.<br /><br />
+        It not only challenged the concept of money but also laid the groundwork
+        for thousands of new cryptocurrencies.<br />
+        The birth of <strong>Bitcoin</strong> was more than just the start of a
+        new asset—it was the dawn of a movement toward decentralized finance and
+        digital sovereignty.
+      </div>
+    </div>
+    <div id="section3" class="section" data-color="#ffe1d4">
+      <h3><strong>Beyond Cryptocurrency:</strong> Altcoins</h3>
+      <div>
+        While Bitcoin pioneered the cryptocurrency movement, it didn’t take long
+        for others to expand on its ideas.
+        <div class="modal7">
+          Altcoins
+          <div class="hover-modal7">
+            <strong>Altcoins</strong>
+            <p>
+              Altcoins are alternative cryptocurrencies to Bitcoin, created to
+              offer different features, use cases, or improvements within the
+              blockchain ecosystem.
+            </p>
+          </div>
+        </div>
+        —alternatives to Bitcoin—include Ethereum, Litecoin, Ripple, and
+        thousands more. Each brings unique features: Ethereum introduced smart
+        contracts, allowing self-executing agreements without intermediaries;
+        Cardano focuses on sustainability and academic research; while Solana
+        offers high-speed transactions. <br /><br />Tokens, on the other hand,
+        are digital assets created on existing blockchains, often serving
+        specific use cases such as governance, utility, or access within
+        decentralized applications (dApps). For example, the ERC-20 standard on
+        Ethereum has enabled the creation of countless tokens for
+        <div class="modal8">
+          DeFi projects
+          <div class="hover-modal8">
+            <strong>DeFi Projects</strong>
+            <p>
+              DeFi projects are decentralized finance applications built on
+              blockchain networks that aim to recreate and improve traditional
+              financial services—like lending, trading, and borrowing—without
+              intermediaries.
+            </p>
+          </div>
+        </div>
+        and
+        <div class="modal9">
+          Initial Coin Offerings (ICOs)
+          <div class="hover-modal9">
+            <strong>Initial Coin Offerings (ICOs)</strong>
+            <p>
+              Initial Coin Offerings (ICOs) are fundraising events where new
+              cryptocurrency projects sell their tokens to investors in exchange
+              for capital, often used to launch blockchain-based platforms or
+              applications.
+            </p>
+          </div>
+          .
+        </div>
+        <br /><br />These innovations have unlocked diverse use cases in
+        finance, gaming, identity, and more. However, this expansion also brings
+        complexity and risk, requiring users to understand the underlying
+        technology. Together, altcoins and tokens continue to push the
+        boundaries of what blockchain technology can achieve beyond simple
+        peer-to-peer payments.
+      </div>
+    </div>
+    <div id="section4" class="section" data-color="#b9eaff">
+      <h3><strong>Risks</strong> and Responsible Investing</h3>
+      <div>
+        As the cryptocurrency market has grown, so too have concerns around its
+        risks and regulatory challenges.
+        <div class="modal10">
+          Volatility
+          <div class="hover-modal10">
+            <strong>Volatility</strong>
+            <p>
+              Volatility refers to the degree of price fluctuations in a market
+              or asset over a short period, often indicating higher risk and
+              rapid changes in value.
+            </p>
+          </div>
+        </div>
+        is a defining trait—prices can rise or crash dramatically within hours.
+        Security issues like exchange hacks, scams, and lost private keys are
+        persistent threats. <br /><br />Moreover, the anonymous nature of many
+        cryptocurrencies raises concerns about money laundering and illicit
+        transactions. In response, governments and regulators around the world
+        are striving to introduce frameworks that ensure consumer protection
+        while fostering innovation. Some countries embrace crypto with clear
+        guidelines and licensing systems, while others ban it outright.
+        <br /><br />
+        <div class="modal11">
+          Taxation
+          <div class="hover-modal11">
+            <strong>Taxation</strong>
+            <p>
+              Crypto taxation involves the regulation and reporting of
+              cryptocurrency transactions and earnings to tax authorities,
+              requiring individuals and businesses to pay taxes on gains,
+              income, or trades made with digital assets.
+            </p>
+          </div>
+        </div>
+        , anti-money laundering (AML) compliance, and
+        <div class="modal12">
+          Know Your Customer (KYC)
+          <div class="hover-modal12">
+            <strong>Know Your Customer (KYC)</strong>
+            <p>
+              Know Your Customer (KYC) is a regulatory process used by
+              businesses to verify the identity of their clients, helping to
+              prevent fraud, money laundering, and ensure compliance with legal
+              standards.
+            </p>
+          </div>
+        </div>
+        laws are becoming standard. For investors and businesses, staying
+        informed about the legal landscape is crucial. Regulation brings
+        legitimacy, which can lead to wider adoption, but overregulation may
+        stifle growth. Navigating this evolving environment requires caution,
+        education, and a keen eye on both local and global policy changes.
+      </div>
+    </div>
+    <div id="section5" class="section" data-color="#e7f4d4">
+      <h3>The <strong>Future</strong> of Cryptocurrency</h3>
+      <div>
+        The future of cryptocurrency holds immense promise and complexity. As
+        blockchain technology matures, it is expected to revolutionize
+        industries far beyond finance—including healthcare, supply chains,
+        gaming, and governance. Emerging trends such as decentralized finance
+        (DeFi),
+        <div class="modal13">
+          non-fungible tokens (NFTs)
+          <div class="hover-modal13">
+            <strong>NFTs</strong>
+            <p>
+              NFTs (Non-Fungible Tokens) are unique digital assets stored on a
+              blockchain that represent ownership of a specific item—such as
+              art, music, or collectibles—offering verifiable authenticity and
+              scarcity.
+            </p>
+          </div>
+        </div>
+        , and decentralized autonomous organizations (DAOs) are redefining how
+        we interact, trade, and organize. <br /><br />
+        <div class="modal14">
+          Scalability
+          <div class="hover-modal14">
+            <strong>Scalability</strong>
+            <p>
+              Scalability refers to a blockchain or system's ability to handle a
+              growing number of transactions or users efficiently, without
+              compromising speed, security, or performance.
+            </p>
+          </div>
+        </div>
+        and interoperability are key technical challenges being tackled through
+        innovations like layer-2 solutions and cross-chain platforms. At the
+        same time, mainstream institutions are entering the space, from banks
+        offering crypto services to governments exploring central bank digital
+        currencies (CBDCs). Sustainability will also shape crypto’s future, with
+        a shift toward greener consensus mechanisms and carbon-neutral
+        operations. <br /><br />Despite regulatory uncertainty, increasing
+        adoption and education suggest that cryptocurrencies are becoming a
+        permanent fixture in the global economy. The question is no longer
+        whether crypto will survive—but how it will evolve, adapt, and integrate
+        into our daily lives over the next decade.
+      </div>
+    </div>
+    <footer class="section" data-color="#252525">
+      <div class="footer-container">
+        <div class="about">
+          <h5>
+            "Stepping into the world of crypto can feel overwhelming at first,
+            but remember: every expert was once a beginner. Stay curious, keep
+            learning, and don’t be afraid to ask questions. The crypto space is
+            more than just markets—it's a movement shaping the future of finance
+            and technology. Start small, think big, and believe in your ability
+            to grow with it."
+          </h5>
+        </div>
+        <div class="footer-nav">
+          <a href="#section1">1. Introduction to Cryptocurrency</a>
+          <a href="#section2">2. Bitcoin the Beginning</a>
+          <a href="#section3">3. Beyond Cryptocurrency: Altcoins</a>
+          <a href="#section4">4. Risks and Responsible Investing</a>
+          <a href="#section5s">5. The Future of Cryptocurrency</a>
+        </div>
+      </div>
+      <ul>
+        <li>
+          <a href="#">Home</a>
+        </li>
+        <li>
+          <a href="/database.html">Database</a>
+        </li>
+      </ul>
+      <div class="left1">
+        <div class="ball">
+          <i class="fa fa-btc" style="font-size: 48px; color: #ffffff"></i>
+        </div>
+        <div class="shadow"></div>
+      </div>
+      <div class="right1">
+        <div class="ball">
+          <i class="fa fa-btc" style="font-size: 48px; color: #ffffff"></i>
+        </div>
+        <div class="shadow"></div>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

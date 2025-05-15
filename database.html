@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="database_styles.css" />
+    <title>Top 100 Cryptocurrency Prices</title>
+  </head>
+  <body>
+    <a href="/index.html">Home</a>
+    <div class="table">
+      <h1>Top 100 Cryptocurrencies by Market Cap</h1>
+      <table id="cryptoTable">
+        <thead>
+          <tr>
+            <th onclick="sortTable(0)">Rank</th>
+            <th onclick="openWindow()">Coin</th>
+            <th onclick="sortTable(2)">Current Price (USD)</th>
+            <th onclick="sortTable(0)">Market Cap</th>
+            <th onclick="sortTable(4)">24h Change (%)</th>
+          </tr>
+        </thead>
+        <tbody id="cryptoTableBody" onclick="openWindow()"></tbody>
+      </table>
+    </div>
+    <div id="coinModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2 id="modalCoinName"></h2>
+        <p id="modalCoinPrice"></p>
+        <p>Introduce the price you bought</p>
+        <input type="number" id="price" />
+        <button onclick="calcProfit()">submit</button>
+        <p>Current profit</p>
+        <div id="output"></div>
+      </div>
+    </div>
+    <script src="database_script.js"></script>
+  </body>
+</html>
